@@ -1,0 +1,37 @@
+*{
+    margin-top: 0%;
+}
+#banner{
+    background-color: tomato;
+    width: 100%;
+}
+#menu{
+    background-color: violet;
+    width: 100%;
+}
+#general{
+    background-color: yellowgreen;
+    width: 100%;
+}
+#col1{
+    background-color: wheat;
+    float: left;
+    width: 20%;
+    height: 50%;
+}
+#col2{
+    background-color: rgb(173, 144, 89);
+    float: right;
+    width: 20%;
+    height: 50%;
+}
+#cuerpo{
+    background-color: thistle;
+    width: 60%;
+    float: left;
+    height: 50%;
+}
+#footer{
+    background-color: tomato;
+    width: 100%;
+}
