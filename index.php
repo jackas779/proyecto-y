@@ -1,5 +1,5 @@
 <?php 
 
-header('Location: codigo/index.php')
+header('Location: codigo/login.php')
 
 ?>

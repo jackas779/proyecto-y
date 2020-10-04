@@ -1,25 +1,19 @@
-<?php 
+<select name="fk_id_categoria" id="fk_id_categoria" required>
+    <option value="">Seleccione:</option>
+    <!-- selector multiple -->
+<?php
+// la consulta de la categorias
 
-    include("conexion.php");
-    session_start();
-    $contador="0";
-    // se consulta primero si la categoria ya existe
-    $documento=$_SESSION["documento"];// variable de sesion que se incio en el codigo de evaluar sesion
-    $consulta = "SELECT * FROM permisos WHERE documento='$documento'";
+include("conexion.php");//la conexion con la base de datos
+$consulta = "SELECT * FROM roles";
     if(!$resultado = $db->query($consulta)){
-        die('hay un error con la consulta o los datos no existen vuelve a comprobar !!![' . $db->error . ']');
-        }// la consulta
+        die('hay un error con la consulta o los daots no existen vuelve a comprobar !!![' . $db->error . ']');
+    }// la consulta
     while($fila = $resultado->fetch_assoc()){
-        $bfk_id_rol=stripslashes($fila["fk_id_rol"]);
-        if($bfk_id_rol=="1"){
-            $_SESSION['admin']="1";
-            echo "<a href='admin.php'>Ir a admin</a>";
-            echo "<br>";
-        }    
-        if($bfk_id_rol=="1"){
-            $_SESSION['usuario']="1";
-            echo "<a href='usuario.php'>Ir a usuario</a>";
-            echo "<br>";
-        }    
+        $bid_categoria=stripslashes($fila["id_roles"]);
+        $bcategoria=stripslashes($fila["roles"]);
+        echo "<option value=' $bid_categoria'>$bcategoria</option>";
+        // Esta es la consulta de las categorias
     }
-?>       
+?>
+</select>   
