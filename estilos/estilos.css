@@ -35,3 +35,6 @@
     background-color: tomato;
     width: 100%;
 }
+.NotItemOne option:first-child{
+    display: none;
+}
