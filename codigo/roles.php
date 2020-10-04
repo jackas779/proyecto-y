@@ -16,7 +16,7 @@
             echo "<a href='admin.php'>Ir a admin</a>";
             echo "<br>";
         }    
-        if($bfk_id_rol=="1"){
+        if($bfk_id_rol=="2"){
             $_SESSION['usuario']="1";
             echo "<a href='usuario.php'>Ir a usuario</a>";
             echo "<br>";
