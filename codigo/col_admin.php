@@ -6,10 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-<p style="justify-content: center;">Esta es la columna 1</p>
-<div id="menu">
-<?php include("menu.php") ?>
-</div><!-- Se llama al menu -->
+<?php
+include("roles.php");
+?>
+<a href="salir.php">Cerrar Sesion</a>
+<p><span>Columna de de los usuarios</span></p>
     
 </body>
 </html>

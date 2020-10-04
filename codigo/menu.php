@@ -7,12 +7,12 @@
 </head>
 <body>
     
-<p>
-<a href="pre_crear_productos.php">Crear Producto</a>
-<a href="pre_crear_categorias.php">Crear Categoria</a>
-<a href="pre_consultar_productos.php">Consultar Productos</a>
-<a href="index.php">INICIO</a>
-</p>
-
+<nav>
+ <li><a href="pre_crear_productos.php">Crear Producto</a></li>
+ <li><a href="pre_crear_categorias.php">Crear Categoria</a></li>
+ <li><a href="pre_consultar_productos.php">Consultar Productos</a></li>
+ <li><a href="pre_consultar_categorias.php">Consultar Categorias</a></li>
+ <li><a href="salir.php">Cerrar Sesion</a></li>   
+</nav>
 </body>
 </html>

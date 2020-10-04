@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,29 +23,22 @@ include("conexion.php");// conexion con la base de datos
 
 echo "<table>";// la tabla de tu mujer xd
 echo "<tr bgcolor='#fFDDAA'>";
-echo "<td>Nombre</td>";
-echo "<td>Descripcion</td>";
-echo "<td>Codigo Producto</td>";
-echo "<td>Estado</td>";
+echo "<td>ID Categoria</td>";
+echo "<td>Categoria</td>";
 echo "</tr>";
 
 
-$consulta = "SELECT P.cod_producto, P.producto, P.descripcion, P.fk_id_estado, E.id_estado, E.nombre_estado FROM productos P INNER JOIN estados E ON P.fk_id_estado = E.id_estado";// consulta
+$consulta = "SELECT * FROM categorias";// consulta
     if(!$resultado = $db->query($consulta)){
     die('hay un error con la consulta o los datos no existen vuelve a comprobar !!![' . $db->error . ']');
     }// imprimir los resultados de la consulta
-    while($fila = $resultado->fetch_assoc()){
-        $bcod_producto=stripslashes($fila["cod_producto"]);
-        $bproducto=stripslashes($fila["producto"]);
-        $bdescripcion=stripslashes($fila["descripcion"]);
-        $bid_producto=stripslashes($fila["id_producto"]);
-        $bestado=stripslashes($fila["nombre_estado"]);
+    while($fila = $resultado->fetch_assoc()){;
+        $bid_categoria=stripslashes($fila["id_categoria"]);
+        $bcategoria=stripslashes($fila["categoria"]);
 
         echo "<tr>";
-        echo "<td>$bproducto</td>";
-        echo "<td>$bdescripcion</td>";
-        echo "<td>$bcod_producto</td>";
-        echo "<td>$bestado<button><a href='neg_cambio_estado.php?estado=$bid_producto'>cambiar estado</a></button></td>";
+        echo "<td>$bid_categoria</td>";
+        echo "<td>$bcategoria</td>";
         echo "<tr>";
 
         }

@@ -13,13 +13,24 @@
 
 
 <div id="col1">
-<?php include("col_usu.php") ?>
+<?php include("col_login.php") ?>
 </div><!-- Se llama a la columna izquierda -->
 
 <div id="cuerpo">
-<p><span>
-    Este es el cuerpo de la pagina 
-</span></p>
+<?php
+@$error=$_GET["error"];// cuando se ingresan mal los datos vote un mensaje de error
+if ($error=="error")
+{
+
+	echo "<p style='color:red'>Error en los datos de acceso</p>";
+} ?>
+<form action="neg_evaluar_sesion.php" id="login" name="login" method="post" autocomplete="off">
+
+<input type="text" name="documento" id="documento">Documento <br>
+<input type="password" name="password" id="password">Contraseña<br>
+<input type="submit" value="Ingresar"/> 
+
+<!-- Las casillas del formulario  -->
 </div><!-- El cuerpo de la pagina, se cambia o modifica de acuerdo la pagina. -->
 
 <div id="col2">

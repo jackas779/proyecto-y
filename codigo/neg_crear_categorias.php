@@ -11,9 +11,6 @@
 <?php include("banner.php") ?>
 </div><!-- Se llama al banner -->
 
-<div id="menu">
-<?php include("menu.php") ?>
-</div><!-- Se llama al menu -->
 
 <div id="col1">
 <?php include("col1.php") ?>
@@ -23,7 +20,7 @@
 
 <?php 
 
-class categorias {
+class Categorias {
     public function crear($categoria){
         include("conexion.php");//conexion con la base de datos
         $contador="0";
@@ -46,7 +43,7 @@ class categorias {
     }
 }
 
-$nuevo=new categorias();
+$nuevo=new Categorias();
 $nuevo->crear($_POST["categoria"]);
 
 ?>

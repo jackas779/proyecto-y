@@ -1,3 +1,6 @@
+<?php//se llama la seguridad del usuario admin
+include("seguridad_admin.php"); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,7 @@
 
 
 <div id="col1">
-<?php include("col_usu.php") ?>
+<?php include("col_admin.php") ?>
 </div><!-- Se llama a la columna izquierda -->
 
 <div id="cuerpo">

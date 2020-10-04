@@ -6,10 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-<p style="justify-content: center;">Esta es la columna 1</p>
-<div id="menu">
-<?php include("menu.php") ?>
-</div><!-- Se llama al menu -->
+<nav>
+ <li><a href="login.php">Iniciar Sesion</a></li>
+</nav>
     
 </body>
 </html>

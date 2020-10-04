@@ -11,9 +11,6 @@
 <?php include("banner.php") ?>
 </div><!-- Se llama al banner -->
 
-<div id="menu">
-<?php include("menu.php") ?>
-</div><!-- Se llama al menu -->
 
 <div id="col1">
 <?php include("col1.php") ?>
