@@ -1,5 +1,6 @@
-<?php//se llama la seguridad del usuario admin
-include("seguridad_usuario.php"); 
+<?php
+include("seguridad_admin.php"); 
+//se llama la seguridad del usuario admin
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +21,13 @@ include("seguridad_usuario.php");
 </div><!-- Se llama a la columna izquierda -->
 
 <div id="cuerpo">
-<p><span>
-    Este es el cuerpo de la pagina 
-</span></p>
+<input type="text" value="<?php $variable =  $_SESSION['admin'];
+echo "$variable";
+?>">    
+<?php//se llama la seguridad del usuario admin 
+$variable =  $_SESSION['admin'];
+echo "$variable";
+?>
 </div><!-- El cuerpo de la pagina, se cambia o modifica de acuerdo la pagina. -->
 
 <div id="col2">

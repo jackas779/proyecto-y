@@ -1,7 +1,13 @@
 <?php
 session_start();
-if ($_SESSION["admin"]!="1")
+$variable =  $_SESSION['admin'];
+echo "$variable";
+if ($_SESSION['admin']=="0")
 {
-header("Location: salir.php");
+    header("location: salir.php");
+}
+if ($_SESSION['admin']!="1")
+{
+    header("location: salir.php");
 }
 ?>

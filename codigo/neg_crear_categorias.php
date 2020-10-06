@@ -1,6 +1,4 @@
-<?php //se llama la seguridad del usuario admin
-include("seguridad_admin.php");
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

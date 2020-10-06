@@ -7,7 +7,7 @@
 </head>
 <body>
 <nav>
- <li><a href="index.php">Cerrar Sesion</a></li>
+ <li><a href="index.php">INICIO</a></li>
 </nav>
 <p><span>Columna del login</span></p>
     

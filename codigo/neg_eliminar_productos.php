@@ -1,6 +1,3 @@
-<?php//se llama la seguridad del usuario admin
-include("seguridad_admin.php"); 
-?>
 <?php 
 include("conexion.php");
     class Producto {

@@ -7,7 +7,7 @@
 </head>
 <body>
 <nav>
- <li><a href="login.php">Iniciar Sesion</a></li>
+ <li><a href="pre_login.php">Iniciar Sesion</a></li>
 </nav>
     
 </body>

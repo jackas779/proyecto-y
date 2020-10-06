@@ -16,7 +16,7 @@ class Sesion {
         if($password==$bpassword)
         {
             $contador=$contador+1;
-            $_SESSION["usuario"]="1";
+            $_SESSION["admin"]="1";
             $_SESSION["documento"]=$documento;
             header ("Location: usuario.php");
             }
