@@ -55,8 +55,24 @@ $consulta = "SELECT P.id_producto, P.cod_producto, P.producto, P.descripcion, P.
         echo "<td>$bdescripcion</td>";
         echo "<td>$bcod_producto</td>";
         echo "<td>$bestado<button><a href='neg_cambio_estado.php?id=$bid_producto'>cambiar estado</a></button></td>";
-        echo "<td><button><a href='pre_editar_productos.php?id=$bid_producto'>Editar</a></button></td>";
-        echo "<td><button><a href='pre_eliminar_productos.php?id=$bid_producto'>Eliminar</a></button></td>";
+
+        echo "<td>";
+        //Formulario para editar productos
+        echo "<form action='pre_editar_productos.php' id='editar_productos' name='editar_productos' method='POST' autocomplete='off'>
+        <input type='hidden' name='id_producto' id='id_producto' value='$bid_producto'>
+        <input type='submit'  value='Editar'>
+        </form>";
+        echo "</td>";
+
+        echo "<td>";
+        //Formulario para eliminar productos
+        echo "<form action='neg_eliminar_productos.php' id='eliminar_productos' name='eliminar_productos' method='POST' autocomplete='off'>
+        <input type='hidden' name='id_producto' id='id_producto' value='$bid_producto' />
+        <input type='checkbox' name='validar' value='checkbox' required />
+        <input type='submit'  value='Elimininar' />
+        </form>";
+        echo "</td>";
+
         echo "<td>$bcategoria</td>";
         echo "<tr>";
 

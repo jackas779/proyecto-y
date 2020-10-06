@@ -27,6 +27,11 @@ include("seguridad_admin.php");
 <input type="text" name="producto" id="producto">Nombre Producto <br>
 <input type="text" name="descripcion" id="descripcion">Descripcion <br>
 <!-- Las casillas del formulario  -->
+
+<input type="hidden" name="estado" id="estado" value="1"> <br>
+<!-- el estado del producto -->
+
+<!-- el select -->
 <select name="fk_id_categoria" id="fk_id_categoria" required>
     <option value="">Seleccione:</option>
     <!-- selector multiple -->

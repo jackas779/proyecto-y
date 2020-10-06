@@ -24,10 +24,10 @@ include("seguridad_admin.php");
 <?php 
 
 class Producto {
-    public function registrar($cod_producto,$producto,$descripcion,$fk_id_categoria){
+    public function registrar($cod_producto,$producto,$descripcion,$fk_id_categoria,$estado){
         include("conexion.php");
         $contador="0";
-        // se consulta primero si la categoria ya existe
+        // se consulta primero si el producto ya existe
         $consulta = "SELECT * FROM productos WHERE cod_producto='$cod_producto'";
     if(!$resultado = $db->query($consulta)){
         die('hay un error con la consulta o los datos no existen vuelve a comprobar !!![' . $db->error . ']');
@@ -37,8 +37,8 @@ class Producto {
         $contador+= 1;
         }// la consulta termina
     if($contador=="0"){
-        mysqli_query($db,"INSERT INTO productos (id_producto,cod_producto,producto,descripcion,fk_id_categoria) VALUES (NULL,'$cod_producto','$producto','$descripcion','$fk_id_categoria')") or die (mysqli_error($db));
-        echo "El producto se cre&oacute; correctamente";
+        mysqli_query($db,"INSERT INTO productos (id_producto,cod_producto,producto,descripcion,fk_id_categoria,fk_id_estado) VALUES (NULL,'$cod_producto','$producto','$descripcion','$fk_id_categoria','$estado')") or die (mysqli_error($db));
+        header("location: pre_consultar_productos.php");
         }    
     if($contador!="0"){
         echo "Este producto ya existe";
@@ -47,7 +47,7 @@ class Producto {
 }
 
 $nuevo=new producto();
-$nuevo->registrar($_POST["cod_producto"],$_POST["producto"],$_POST["descripcion"],$_POST["fk_id_categoria"]);
+$nuevo->registrar($_POST["cod_producto"],$_POST["producto"],$_POST["descripcion"],$_POST["fk_id_categoria"],$_POST["estado"]);
 
 ?>
 

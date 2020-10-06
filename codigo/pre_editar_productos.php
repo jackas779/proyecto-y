@@ -21,11 +21,12 @@ include("seguridad_admin.php");
 
 <div id="cuerpo">
 <?php 
-include("conexion.php");//la conexion con la base de datos
-if(isset($_GET['id'])){
-    $variable=$_GET['id'];
-    $consul = "SELECT * FROM productos WHERE id_producto='$variable'";
-    if(!$resultado = $db->query($consul)){
+
+class Producto {
+    public function pre_editar($variable){
+        include("conexion.php");//la conexion con la base de datos
+        $consul = "SELECT * FROM productos WHERE id_producto='$variable'";
+        if(!$resultado = $db->query($consul)){
         die('hay un error con la consulta o los datos no existen vuelve a comprobar !!![' . $db->error . ']');
         }// la consulta
         while($fila = $resultado->fetch_assoc()){
@@ -34,13 +35,13 @@ if(isset($_GET['id'])){
             $bdescripcion=stripslashes($fila["descripcion"]);
             $bfk_id_estado=stripslashes($fila["fk_id_estado"]);
             $bid_producto=stripslashes($fila["id_producto"]);
-            }// la consulta termina 
-    }  
+        }// fin del while la consulta termina   
     $categorias = "SELECT P.fk_id_categoria, P.id_producto, P.fk_id_estado, C.id_categoria, C.categoria FROM productos P INNER JOIN categorias C ON P.fk_id_categoria = C.id_categoria WHERE P.id_producto = $variable ";
     if(!$result = $db->query($categorias)){
         die('hay un error con la consulta o los datos no existen vuelve a comprobar !!![' . $db->error . ']');
         }// la consulta    
     while($row = $result->fetch_assoc()){
+    $bid_categoria=stripslashes($row["id_categoria"]);    
     $bcategoria=stripslashes($row["categoria"]);
       }// la consulta termina    
     if($bfk_id_estado!="1"){
@@ -55,12 +56,11 @@ if(isset($_GET['id'])){
 <input type="text" name="ed_descripcion" id="ed_descripcion" value="<?php echo "$bdescripcion"; ?>">Descripcion <br>
 <!-- Las casillas del formulario  -->
 <select name="ed_fk_id_categoria" id="ed_fk_id_categoria" class="NotItemOne" required>
-    <option value="<?php echo "$bcategoria"; ?>" selected><?php echo "$bcategoria"; ?></option>
+    <option value="<?php echo "$bid_categoria"; ?>" selected><?php echo "$bcategoria"; ?></option>
     <!-- selector multiple -->
 <?php
 // la consulta de la categorias
-
-include("conexion.php");//la conexion con la base de datos
+include("conxeion.php");
 $consulta = "SELECT * FROM categorias";
     if(!$resultado = $db->query($consulta)){
         die('hay un error con la consulta o los daots no existen vuelve a comprobar !!![' . $db->error . ']');
@@ -73,12 +73,19 @@ $consulta = "SELECT * FROM categorias";
         // Esta es la consulta de las categorias
     }
 ?>
-</select>
+</select><br>
 
-<input type="submit" value="Actualizar Producto"/> 
+<button><a href="pre_consultar_productos.php">Cancelar</a></button> 
+<input type="submit" value="Actualizar Producto"/>
+
 
 </form>
-
+<?php
+    }// aqui termina la funcion
+}//aqui termina la clase
+$editar=new Producto();
+$editar->pre_editar($_POST["id_producto"]);
+?>
 </div><!-- El cuerpo de la pagina, se cambia o modifica de acuerdo la pagina. -->
 
 <div id="col2">
