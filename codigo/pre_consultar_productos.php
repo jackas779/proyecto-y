@@ -25,6 +25,22 @@ include("seguridad_admin.php");
 <div id="cuerpo">
 <?php 
 
+if(isset($_GET['ed'])){
+    $edd=$_GET['ed'];
+    if($edd="y"){
+        echo "<p style='color:green'>Se edito correctamente el producto</p>";
+    }
+}
+if(isset($_GET['el'])){
+    $edd=$_GET['el'];
+    if($edd="yy"){
+        echo "<p style='color:green'>Se elimino correctamente el producto</p>";
+    }
+}
+
+?>    
+<?php 
+
 include("conexion.php");// conexion con la base de datos
 
 echo "<table>";// la tabla de tu mujer xd

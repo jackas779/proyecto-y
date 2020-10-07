@@ -13,7 +13,7 @@ include("conexion.php");
         $bid_producto=stripslashes($fila["id_producto"]);
         }// la consulta termina
     if($bid_producto==$id_producto){
-        mysqli_query($db,"DELETE FROM productos WHERE id_producto='$id_producto'") or die (mysqli_error($db));header("location: pre_consultar_productos.php");
+        mysqli_query($db,"DELETE FROM productos WHERE id_producto='$id_producto'") or die (mysqli_error($db));header("location: pre_consultar_productos.php?el=yy");
         }
     if($bid_producto!=$id_producto){
         echo"No se actualizo el producto";

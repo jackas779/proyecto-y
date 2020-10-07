@@ -36,7 +36,7 @@ class Producto {
         }// la consulta termina
     if($bid_producto==$id_producto){
         mysqli_query($db,"UPDATE productos SET producto='$producto',cod_producto='$cod_producto', descripcion='$descripcion', fk_id_categoria='$fk_id_categoria'  WHERE id_producto='$id_producto'") or die (mysqli_error($db));
-        echo "El producto se actualizo correctamente";
+        header("location: pre_consultar_productos.php?ed=y");
         }
     if($bid_producto!=$id_producto){
         echo"No se actualizo el producto";

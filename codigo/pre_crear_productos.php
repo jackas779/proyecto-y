@@ -22,6 +22,21 @@ include("seguridad_admin.php");
 
 <div id="cuerpo">
 
+<?php 
+    if(isset($_GET['error'])){
+        $err=$_GET['error'];
+        if($err=="error"){
+            echo "<p style='color:red'>Por favor introduce un codigo de producto</p>";
+        }
+    }
+    if(isset($_GET['ya'])){
+        $err=$_GET['ya'];
+        if($err=="e"){
+            echo "<p style='color:red'>Este producto ya existe</p>";
+        }
+    }
+
+?>
 <form action="neg_crear_productos.php" id="crear_productos" name="crear_productos" method="post" autocomplete="off">
 
 <input type="text" name="cod_producto" id="cod_producto">Cod producto <br>
