@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,31 +20,31 @@
 
 <?php 
 
-class Categorias {
-    public function crear($categoria,$estado){
-        include("conexion.php");//conexion con la base de datos
-        $contador="0";
+class Categoria {
+    public function editar($id_categoria, $categoria){
+        include("conexion.php");
         // se consulta primero si la categoria ya existe
-        $consulta = "SELECT * FROM categorias WHERE categoria='$categoria'";
+        $consulta = "SELECT * FROM categorias WHERE id_categoria='$id_categoria'";
     if(!$resultado = $db->query($consulta)){
         die('hay un error con la consulta o los datos no existen vuelve a comprobar !!![' . $db->error . ']');
-        }// la consulta
+        }// la consulta       
     while($fila = $resultado->fetch_assoc()){
         $bcategoria=stripslashes($fila["categoria"]);
-        $contador+= 1;
+        $bid_categoria=stripslashes($fila["id_categoria"]);
         }// la consulta termina
-    if($contador=="0"){
-        mysqli_query($db,"INSERT INTO categorias (id_categoria,categoria,fk_id_estado) VALUES (NULL,'$categoria','$estado')") or die (mysqli_error($db));// la insercion de la categoria en l base de datos
-        echo "La categoria se cre&oacute; correctamente";
-        }    
-    if($contador!="0"){
-        echo "Esta categoria ya existe";// comprobacion para no sobre escribir datos
+    if($bid_categoria==$id_categoria){
+        mysqli_query($db,"UPDATE categorias SET categoria='$categoria'  WHERE id_categoria='$id_categoria'") or die (mysqli_error($db));
+        echo "La categoria se actualizo correctamente";
         }
+    if($bid_categoria!=$id_categoria){
+        echo"No se actualizo la categoria";
+        }    
     }
+    
 }
 
-$nuevo=new Categorias();
-$nuevo->crear($_POST["categoria"],$_POST["estado"]);
+$nuevo=new Categoria();
+$nuevo->editar($_POST["id_categoria"],$_POST["ed_categoria"]);
 
 ?>
 

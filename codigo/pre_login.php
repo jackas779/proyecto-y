@@ -22,7 +22,7 @@
 if ($error=="error")
 {
 
-	echo "<p style='color:red'>Error en los datos de acceso</p>";
+	echo "<p style='color:red'>La contraseña o el documentos son incorrectos</p>";
 } ?>
 <form action="neg_evaluar_sesion.php" id="login" name="login" method="post" autocomplete="off">
 
