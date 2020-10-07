@@ -29,6 +29,24 @@ include("seguridad_admin.php");
 <div id="cuerpo">
 <?php 
 
+//mensaje de confirmacion
+if(isset($_GET['id'])){
+$var=$_GET['id'];
+if($var=="correct"){
+    echo "<p style='color: green' >Se creo la categoria</p>";
+}
+}
+//Se termina el mensaje
+
+//mensaje de eliminacion
+if(isset($_GET['el'])){
+    $el=$_GET['el'];
+    if($el=="incorrect"){
+        echo "<p style='color: green' >Se elimino la categoria</p>";
+    }
+}
+//Se termina el mensaje
+
 include("conexion.php");// conexion con la base de datos
 
 echo "<table>";// la tabla de tu mujer xd

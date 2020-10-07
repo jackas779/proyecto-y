@@ -21,10 +21,20 @@ include("seguridad_admin.php");
 </div><!-- Se llama a la columna izquierda -->
 
 <div id="cuerpo">
-
+<?php
+        @$error=$_GET["error"];// cuando se ingresan mal los datos vote un mensaje de error
+        if ($error=="error")
+        {
+            echo "<p style='color:red'>Por favor digite un nombre para la categoria</p>";
+        }
+        @$id=$_GET['id'];
+        if($id=="error"){
+            echo"<p style='color:red' >La categoria ya existe</p>";
+        }
+        ?><br>
 <form action="neg_crear_categorias.php" id="crear_categorias" name="crear_categorias" method="post" autocomplete="off">
 
-<input type="text" name="categoria" id="categoria">Categoria <br>
+<input type="text" name="categoria" id="categoria">Categoria <br><br>
 <input type="hidden" name="estado" id="estado" value="1">
 <!-- Las casillas del formulario  -->
 

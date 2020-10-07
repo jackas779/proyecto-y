@@ -14,7 +14,7 @@ include("conexion.php");
         }// la consulta termina
     if($bid_categoria==$id_categoria){
         mysqli_query($db,"DELETE FROM categorias WHERE id_categoria='$id_categoria'") or die (mysqli_error($db));
-        header("location: pre_consultar_categorias.php");
+        header("location: pre_consultar_categorias.php?el=incorrect");
         }
     if($bid_categoria!=$id_categoria){
         echo"No se actualizo el producto";
