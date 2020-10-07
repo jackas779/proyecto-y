@@ -34,7 +34,10 @@ if(isset($_GET['ed'])){
 if(isset($_GET['el'])){
     $edd=$_GET['el'];
     if($edd="yy"){
+        echo "<div id='cierre'>";
         echo "<p style='color:green'>Se elimino correctamente el producto</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
     }
 }
 
@@ -108,6 +111,10 @@ $consulta = "SELECT P.id_producto, P.cod_producto, P.producto, P.descripcion, P.
 <div id="footer">
 <?php include("footer.php") ?>
 </div> <!-- Se llama al footer -->
+
+<script type="text/javascript" src="../js/cierre.js">
+
+</script>
 
 </body>
 </html>
