@@ -89,7 +89,7 @@ $consulta = "SELECT P.id_producto, P.cod_producto, P.producto, P.descripcion, P.
         echo "<form action='neg_eliminar_productos.php' id='eliminar_productos' name='eliminar_productos' method='POST' autocomplete='off'>
         <input type='hidden' name='id_producto' id='id_producto' value='$bid_producto' />
         <input type='checkbox' name='validar' value='checkbox' required />
-        <input type='submit'  value='Elimininar' />
+        <input type='submit'  value='Eliminar' />
         </form>";
         echo "</td>";
 

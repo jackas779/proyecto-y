@@ -1,3 +1,3 @@
 function cerrar(){
-    alert("se oculta");
+    document.getElementById('cierre').style.display='none';
 }
