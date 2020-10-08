@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-10-2020 a las 05:47:53
+-- Tiempo de generación: 08-10-2020 a las 03:21:17
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
 
@@ -29,17 +29,20 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `categorias` (
   `id_categoria` int(5) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `fk_id_estado` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=18 ;
 
 --
 -- Volcado de datos para la tabla `categorias`
 --
 
-INSERT INTO `categorias` (`id_categoria`, `categoria`) VALUES
-(1, 'pantallas'),
-(2, 'teclados'),
-(3, 'CPU');
+INSERT INTO `categorias` (`id_categoria`, `categoria`, `fk_id_estado`) VALUES
+(1, 'Pantallas', '1'),
+(2, 'Teclados', '1'),
+(3, 'CPU', '1'),
+(4, 'Mouse', '1'),
+(5, 'celular', '1');
 
 -- --------------------------------------------------------
 
@@ -95,15 +98,17 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `fk_id_categoria` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
   `fk_id_estado` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_producto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=15 ;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`id_producto`, `cod_producto`, `producto`, `descripcion`, `fk_id_categoria`, `fk_id_estado`) VALUES
-(1, '000123', 'Pantalla Sansung LCD', 'BUEN ESTADO', ' 1', '2'),
-(2, '000124', 'pantalaa LG LCD ', 'DAÑADA', ' 1', '2');
+(1, '000123', 'Pantalla Sansung LCD', 'BUEN ESTADO', ' 2', '2'),
+(2, '000124', 'pantalla LG LCD ', 'DAÑADA', '3', '1'),
+(4, '000125', 'Pantalla CHALLENGER LCD', 'BUEN ESTADO', '4', '1'),
+(13, '000127', 'prrueba', 'pruea', ' 2', '1');
 
 -- --------------------------------------------------------
 
