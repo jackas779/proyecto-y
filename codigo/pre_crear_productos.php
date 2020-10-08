@@ -26,13 +26,21 @@ include("seguridad_admin.php");
     if(isset($_GET['error'])){
         $err=$_GET['error'];
         if($err=="error"){
+            echo "<div id='cierre'>";
             echo "<p style='color:red'>Por favor introduce un codigo de producto</p>";
+            echo "<input type='button' value='x' onclick='cerrar();'>";  
+            echo "</div>";
+            
         }
     }
     if(isset($_GET['ya'])){
         $err=$_GET['ya'];
         if($err=="e"){
+            echo "<div id='cierre'>";
             echo "<p style='color:red'>Este producto ya existe</p>";
+            echo "<input type='button' value='x' onclick='cerrar();'>";  
+            echo "</div>";
+            
         }
     }
 
@@ -82,6 +90,10 @@ $consulta = "SELECT * FROM categorias";
 <div id="footer">
 <?php include("footer.php") ?>
 </div> <!-- Se llama al footer -->
+
+<script type="text/javascript" src="../js/cierre.js">
+
+</script>
 
 </body>
 </html>

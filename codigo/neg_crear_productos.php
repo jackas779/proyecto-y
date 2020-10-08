@@ -19,7 +19,7 @@ class Producto {
     if($cod_producto!=""){    
     if($contador=="0"){
         mysqli_query($db,"INSERT INTO productos (id_producto,cod_producto,producto,descripcion,fk_id_categoria,fk_id_estado) VALUES (NULL,'$cod_producto','$producto','$descripcion','$fk_id_categoria','$estado')") or die (mysqli_error($db));
-        header("location: pre_consultar_productos.php");
+        header("location: pre_consultar_productos.php?c=1");
         }    
     if($contador!="0"){
         header("location: pre_crear_productos.php?ya=e");

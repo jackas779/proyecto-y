@@ -31,10 +31,10 @@ class Categoria {
     while($fila = $resultado->fetch_assoc()){
         $bcategoria=stripslashes($fila["categoria"]);
         $bid_categoria=stripslashes($fila["id_categoria"]);
-        }// la consulta termina
+        }// la consulta termina    
     if($bid_categoria==$id_categoria){
         mysqli_query($db,"UPDATE categorias SET categoria='$categoria'  WHERE id_categoria='$id_categoria'") or die (mysqli_error($db));
-        echo "La categoria se actualizo correctamente";
+        header("location: pre_consultar_categorias.php?ed=correct");
         }
     if($bid_categoria!=$id_categoria){
         echo"No se actualizo la categoria";

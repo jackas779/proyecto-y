@@ -25,10 +25,23 @@ include("seguridad_admin.php");
 <div id="cuerpo">
 <?php 
 
+if(isset($_GET['c'])){
+    $edd=$_GET['c'];
+    if($edd="1"){
+        echo "<div id='cierre'>";
+        echo "<p style='color:green'>Se edito correctamente el producto</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
+    }
+}
+
 if(isset($_GET['ed'])){
     $edd=$_GET['ed'];
     if($edd="y"){
+        echo "<div id='cierre'>";
         echo "<p style='color:green'>Se edito correctamente el producto</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
     }
 }
 if(isset($_GET['el'])){

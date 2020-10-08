@@ -33,7 +33,11 @@ include("seguridad_admin.php");
 if(isset($_GET['id'])){
 $var=$_GET['id'];
 if($var=="correct"){
-    echo "<p style='color: green' >Se creo la categoria</p>";
+       
+        echo "<div id='cierre'>";
+        echo "<p style='color: green' >Se creo la categoria</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
 }
 }
 //Se termina el mensaje
@@ -42,7 +46,23 @@ if($var=="correct"){
 if(isset($_GET['el'])){
     $el=$_GET['el'];
     if($el=="incorrect"){
+        echo "<div id='cierre'>";
         echo "<p style='color: green' >Se elimino la categoria</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
+        
+    }
+}
+//Se termina el mensaje
+
+if(isset($_GET['ed'])){
+    $el=$_GET['ed'];
+    if($el=="correct"){
+        echo "<div id='cierre'>";
+        echo "<p style='color: green' >Se edito la categoria correctamente</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
+        
     }
 }
 //Se termina el mensaje
@@ -107,6 +127,8 @@ $consulta = "SELECT C.id_categoria, C.categoria, C.fk_id_estado,
 <div id="footer">
 <?php include("footer.php") ?>
 </div> <!-- Se llama al footer -->
+<script type="text/javascript" src="../js/cierre.js">
 
+</script>
 </body>
 </html>

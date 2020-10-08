@@ -24,12 +24,21 @@ include("seguridad_admin.php");
 <?php
         @$error=$_GET["error"];// cuando se ingresan mal los datos vote un mensaje de error
         if ($error=="error")
-        {
+        {   
+            echo "<div id='cierre'>";
             echo "<p style='color:red'>Por favor digite un nombre para la categoria</p>";
+            echo "<input type='button' value='x' onclick='cerrar();'>";  
+            echo "</div>";
+            
         }
         @$id=$_GET['id'];
         if($id=="error"){
+
+            echo "<div id='cierre'>";
             echo"<p style='color:red' >La categoria ya existe</p>";
+            echo "<input type='button' value='x' onclick='cerrar();'>";  
+            echo "</div>";
+            
         }
         ?><br>
 <form action="neg_crear_categorias.php" id="crear_categorias" name="crear_categorias" method="post" autocomplete="off">
@@ -51,6 +60,11 @@ include("seguridad_admin.php");
 <div id="footer">
 <?php include("footer.php") ?>
 </div> <!-- Se llama al footer -->
+
+<script type="text/javascript" src="../js/cierre.js">
+
+</script>
+
 
 </body>
 </html>
