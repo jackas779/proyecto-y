@@ -14,6 +14,7 @@
  <li><a href="pre_consultar_categorias.php">Consultar Categorias</a></li>
  <li><a href="admin.php">INICIO</a></li>
  <li><a href="salir.php">Cerrar Sesion</a></li>   
+ <li><a href="pre_registrar.php">Registrar</a></li>
 </nav>
 </body>
 </html>

@@ -52,7 +52,8 @@ class Producto {
 
 <form action="neg_editar_productos.php" id="crear_productos" name="crear_productos" method="POST" autocomplete="off">
 <input type="hidden" name="id_producto" id="id_producto" value="<?php echo "$bid_producto"; ?>">
-<input type="text" name="ed_cod_producto" id="ed_cod_producto" value="<?php echo "$bcod_producto"; ?>">Cod producto <br>
+<input type="hidden" name="ed_cod_producto" id="ed_cod_producto" value="<?php echo "$bcod_producto"; ?>">
+<input disabled type="text" name="ed_cod_producto" id="ed_cod_producto" value="<?php echo "$bcod_producto"; ?>">Cod producto <br>
 <input type="text" name="ed_producto" id="ed_producto" value="<?php echo "$bproducto"; ?>">Nombre Producto <br>
 <input type="text" name="ed_descripcion" id="ed_descripcion" value="<?php echo "$bdescripcion"; ?>">Descripcion <br>
 <!-- Las casillas del formulario  -->
