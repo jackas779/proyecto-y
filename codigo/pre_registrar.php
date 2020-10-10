@@ -20,38 +20,91 @@ include("seguridad_admin.php");
 <?php include("col1.php") ?>
 </div><!-- Se llama a la columna izquierda -->
 
+
 <div id="cuerpo">
+<?php 
+// mensaje de contraseñas
+if(isset($_GET['error'])){
+    $edd=$_GET['error'];
+    if($edd="pass"){
+        echo "<div id='cierre'>";
+        echo "<p style='color:red'>las contraseñas no coinciden</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
+    }
+}
+
+// mensaje de nombre
+if(isset($_GET['error'])){
+    $edd=$_GET['error'];
+    if($edd="nom"){
+        echo "<div id='cierre'>";
+        echo "<p style='color:red'>Por favor introduce un nombre</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
+    }
+}
+
+// mensaje de apellido
+if(isset($_GET['error'])){
+    $edd=$_GET['error'];
+    if($edd="apel"){
+        echo "<div id='cierre'>";
+        echo "<p style='color:red'>Por favor introduce un apellido</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
+    }
+}
+
+// mensaje de documento
+if(isset($_GET['error'])){
+    $edd=$_GET['error'];
+    if($edd="docuva"){
+        echo "<div id='cierre'>";
+        echo "<p style='color:red'>Por favor introduce un documento</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
+    }
+}
+
+// mensaje de registro
+if(isset($_GET['ya'])){
+    $edd=$_GET['ya'];
+    if($edd="e"){
+        echo "<div id='cierre'>";
+        echo "<p style='color:red'>Este documento ya existe</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
+    }
+}
+
+// mensaje de password
+if(isset($_GET['error'])){
+    $edd=$_GET['error'];
+    if($edd="passva"){
+        echo "<div id='cierre'>";
+        echo "<p style='color:red'>Por favor introduce una contraseña</p>";
+        echo "<input type='button' value='x' onclick='cerrar();'>";  
+        echo "</div>";
+    }
+}
+
+
+?>
+
+<!--El formulario para el registro -->
 <form action="neg_registrar.php" method="post" autocomplete="off" id="registrar" name="registrar">
 
-<input type="text" name="documento" id="documento">Documento <br>
-<input type="text" name="Nombre" id="Nombre">Nombres <br>
-<input type="text" name="Apellido" id="Apellido">Apellidos <br>
-<input type="text" name="password" id="password">Contraseña <br>
-<input type="text" >Repetir Contraseña <br>
+<input type="text" name="documento" id="documento" required>Documento <br>
+<input type="text" name="nombre" id="nombre" required>Nombres <br>
+<input type="text" name="apellido" id="apellido" required>Apellidos <br>
+<input type="text" name="password" id="password" required>Contraseña <br>
+<input type="text" name="rpass" id="repass" required>Repetir Contraseña <br>
 <!-- Las casillas del formulario  -->
 
 <input type="hidden" name="estado" id="estado" value="2"> <br>
 <!-- el estado del producto -->
 
-<!-- el select -->
-<select name="fk_id_roles" id="fk_id_roles" required>
-    <option value="">Seleccione:</option>
-    <!-- selector multiple -->
-<?php
-// la consulta de la categorias
-
-include("conexion.php");//la conexion con la base de datos
-$consulta = "SELECT * FROM roles";
-    if(!$resultado = $db->query($consulta)){
-        die('hay un error con la consulta o los daots no existen vuelve a comprobar !!![' . $db->error . ']');
-    }// la consulta
-    while($fila = $resultado->fetch_assoc()){
-        $bid_roles=stripslashes($fila["id_roles"]);
-        $broles=stripslashes($fila["roles"]);
-        echo "<option value=' $bid_roles'>$broles</option>";
-        // Esta es la consulta de los roles
-    }
-?>
 <input type="submit" value="Registrar">
 
 </form>
@@ -64,6 +117,10 @@ $consulta = "SELECT * FROM roles";
 <div id="footer">
 <?php include("footer.php") ?>
 </div> <!-- Se llama al footer -->
+
+<script type="text/javascript" src="../js/cierre.js">
+
+</script>
 
 </body>
 </html>

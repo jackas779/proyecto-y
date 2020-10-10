@@ -1,7 +1,7 @@
 <?php 
 
 class Registro {
-    public function registrar($documento,$password,$nombres,$apellidos,$roles,$estados){
+    public function registrar($documento,$password,$r,$nombres,$apellidos,$estados){
         include("conexion.php");
         $contador="0";
         // se consulta primero si el producto ya existe
@@ -10,16 +10,28 @@ class Registro {
         die('hay un error con la consulta o los datos no existen vuelve a comprobar !!![' . $db->error . ']');
         }// la consulta
     while($fila = $resultado->fetch_assoc()){
-        $bcod_producto=stripslashes($fila["cod_producto"]);
+        $bdocumento=stripslashes($fila["documento"]);
         $contador+= 1;
         }// la consulta termina
-    if($cod_producto==""){
-        header("location: pre_registrar.php?error=error");
-    }    
-    if($cod_producto!=""){    
+    if($password!=$r){
+        header("location: pre_registrar.php?error=pass");
+    }   
+    if($nombres==""){
+        header("location: pre_registrar.php?error=nom");
+    }  
+    if($apellidos==""){
+        header("location: pre_registrar.php?error=apel");
+    }  
+    if($password==""){
+        header("location: pre_registrar.php?error=passva");
+    }   
+    if($documento==""){
+        header("location: pre_registrar.php?error=docuva");
+    } 
+    if($documento!=""){    
     if($contador=="0"){
-        mysqli_query($db,"INSERT INTO usuarios (id_usuario,documento,password,nombres,apellidos,fk_id_roles,fk_id_estado) VALUES (NULL,'$cod_producto','$producto','$descripcion','$fk_id_categoria','$estado')") or die (mysqli_error($db));
-        header("location: pre_consultar_productos.php?c=1");
+        mysqli_query($db,"INSERT INTO usuarios (id_usuario,documento,password,nombres,apellidos,fk_id_estado,fk_id_roles) VALUES (NULL,'$documento','$password','$nombres','$apellidos','$estados','2')") or die (mysqli_error($db));
+        header("location: pre_consultar_usuarios.php?c=1");
         }    
     if($contador!="0"){
         header("location: pre_registrar.php?ya=e");
@@ -29,6 +41,6 @@ class Registro {
 }
 
 $nuevo=new Registro();
-$nuevo->registrar($_POST["documento"],$_POST["password"],$_POST["nombre"],$_POST["apellido"],$_POST["fk_id_roles"],$_POST["estado"]);
+$nuevo->registrar($_POST["documento"],$_POST["password"],$_POST["rpass"],$_POST["nombre"],$_POST["apellido"],$_POST["estado"]);
 
 ?>

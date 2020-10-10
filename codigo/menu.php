@@ -15,6 +15,7 @@
  <li><a href="admin.php">INICIO</a></li>
  <li><a href="salir.php">Cerrar Sesion</a></li>   
  <li><a href="pre_registrar.php">Registrar</a></li>
+ <li><a href="pre_consultar_usuarios.php">Consultar Usuarios</a></li>
 </nav>
 </body>
 </html>
