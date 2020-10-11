@@ -8,6 +8,7 @@
 <body>
 <nav>
  <li><a href="pre_login.php">Iniciar Sesion</a></li>
+ <li><a href="pre_registrar.php">Registrarse</a></li>
 </nav>
     
 </body>

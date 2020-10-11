@@ -12,21 +12,43 @@ class Sesion {
         }// la consulta
     while($fila = $resultado->fetch_assoc()){
         $bpassword=stripslashes($fila["password"]);
+        $bfk_id_estado=stripslashes($fila["fk_id_estado"]);
+        $bfk_id_roles=stripslashes($fila["fk_id_roles"]);
+    
 
+        }// la consulta termina y el while tambien
+
+
+        echo " $bfk_id_estado";
+       
+        if($bfk_id_estado!="1"){
+            $contador +=1;
+            header ("Location: pre_login.php?error=ina");
+        }
+        if($bfk_id_estado=="1"){
+            echo "hola soy uno";
         if($password==$bpassword)
-        {
+        {   
             $contador=$contador+1;
+            if($bfk_id_roles=="2"){
+            
+            $_SESSION["usuario"]="1";
+            $_SESSION["documento"]=$documento;
+            header ("Location: pre_reporte.php");
+            
+            }   
+            if($bfk_id_roles=="1"){
             $_SESSION["admin"]="1";
             $_SESSION["documento"]=$documento;
             header ("Location: admin.php");
+                }
             }
-            if($password!=$bpassword){
+        }    
+        if($password!=$bpassword){
 
                 echo "datos incorrectos";
 
             }
-
-        }// la consulta termina y el while tambien
 
         if ($contador=="0")
         {

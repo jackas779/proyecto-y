@@ -1,7 +1,6 @@
 <?php 
 
     include("conexion.php");
-    session_start();
     $contador="0";
     // se consulta primero si la categoria ya existe
     $documento=$_SESSION["documento"];// variable de sesion que se incio en el codigo de evaluar sesion

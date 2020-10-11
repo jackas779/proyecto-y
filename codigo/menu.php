@@ -8,14 +8,15 @@
 <body>
     
 <nav>
+ <li><a href="admin.php">INICIO</a></li>
  <li><a href="pre_crear_productos.php">Crear Producto</a></li>
  <li><a href="pre_crear_categorias.php">Crear Categoria</a></li>
  <li><a href="pre_consultar_productos.php">Consultar Productos</a></li>
  <li><a href="pre_consultar_categorias.php">Consultar Categorias</a></li>
- <li><a href="admin.php">INICIO</a></li>
- <li><a href="salir.php">Cerrar Sesion</a></li>   
- <li><a href="pre_registrar.php">Registrar</a></li>
  <li><a href="pre_consultar_usuarios.php">Consultar Usuarios</a></li>
+ <li><a href="pre_consultar_reportes.php">Consultar Reportes</a></li>
+ <li><a href="salir.php">Cerrar Sesion</a></li>   
+
 </nav>
 </body>
 </html>

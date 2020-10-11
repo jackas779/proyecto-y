@@ -1,3 +1,7 @@
+<?php
+include("seguridad_usuario.php"); 
+//se llama la seguridad del usuario 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,33 +17,26 @@
 
 
 <div id="col1">
-<?php include("col_login.php") ?>
+<?php include("col_admin.php") ?>
 </div><!-- Se llama a la columna izquierda -->
 
 <div id="cuerpo">
-<?php
+
+<?php 
 @$error=$_GET["error"];// cuando se ingresan mal los datos vote un mensaje de error
 if ($error=="error")
 {
 
-	echo "<p style='color:red'>La contraseña o el documentos son incorrectos</p>";
+	echo "<p style='color:red'>El producto no se encontro</p>";
 } 
-
-@$error=$_GET["error"];// cuando se ingresan mal los datos vote un mensaje de error
-if ($error=="ina")
-{
-
-	echo "<p style='color:red'>El usuario no esta disponible</p>";
-} 
-
 ?>
-<form action="neg_evaluar_sesion.php" id="login" name="login" method="post" autocomplete="off">
+    <form action="neg_reporte.php" name="reporte" id="reporte" method="post">
 
-<input type="text" name="documento" id="documento">Documento <br>
-<input type="password" name="password" id="password">Contraseña<br>
-<input type="submit" value="Ingresar"/> 
+        <input type="text" id="cod_producto" name="cod_producto">Codigo Producto <br>
+        <input type="text" id="descripcion" name="descripcion">descripción <br>
+        <input type="submit" value="Enviar">
 
-<!-- Las casillas del formulario  -->
+    </form>
 </div><!-- El cuerpo de la pagina, se cambia o modifica de acuerdo la pagina. -->
 
 <div id="col2">

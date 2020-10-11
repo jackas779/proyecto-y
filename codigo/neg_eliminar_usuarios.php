@@ -1,5 +1,4 @@
 <?php 
-include("conexion.php");
     class Producto {
     public function eliminar( $id_usuarios){
         include("conexion.php");
