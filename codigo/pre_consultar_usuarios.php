@@ -29,7 +29,7 @@ if(isset($_GET['c'])){
     $edd=$_GET['c'];
     if($edd="1"){
         echo "<div id='cierre'>";
-        echo "<p style='color:green'>Se edito correctamente el producto</p>";
+        echo "<p style='color:green'>Se creo correctamente el producto</p>";
         echo "<input type='button' value='x' onclick='cerrar();'>";  
         echo "</div>";
     }
@@ -48,7 +48,7 @@ if(isset($_GET['el'])){
     $edd=$_GET['el'];
     if($edd="yy"){
         echo "<div id='cierre'>";
-        echo "<p style='color:green'>Se elimino correctamente el producto</p>";
+        echo "<p style='color:green'>Se elimino correctamente el usuario</p>";
         echo "<input type='button' value='x' onclick='cerrar();'>";  
         echo "</div>";
     }
@@ -71,7 +71,7 @@ echo "<td>rol</td>";
 echo "</tr>";
 
 
-$consulta = "SELECT U.documento, U.nombres, U.apellidos, U.fk_id_estado, U.fk_id_roles,
+$consulta = "SELECT U.documento, U.nombres, U.apellidos, U.fk_id_estado, U.fk_id_roles,U.id_usuario,
                     E.id_estado, E.nombre_estado, 
                     R.id_roles, R.roles
                     FROM usuarios U 
@@ -88,6 +88,7 @@ $consulta = "SELECT U.documento, U.nombres, U.apellidos, U.fk_id_estado, U.fk_id
         $bapellidos=stripslashes($fila["apellidos"]);
         $bestado=stripslashes($fila["nombre_estado"]);
         $broles=stripslashes($fila["roles"]);
+        $bid_usuario=stripslashes($fila["id_usuario"]);
         
 
         echo "<tr>";
@@ -98,16 +99,16 @@ $consulta = "SELECT U.documento, U.nombres, U.apellidos, U.fk_id_estado, U.fk_id
 
         echo "<td>";
         //Formulario para editar productos
-        echo "<form action='pre_editar_usuarios.php' id='editar_productos' name='editar_productos' method='POST' autocomplete='off'>
-        <input type='hidden' name='id_producto' id='id_producto' value='$bdocumento'>
+        echo "<form action='pre_editar_usuarios.php' id='editar_usuarios' name='editar_usuarios' method='POST' autocomplete='off'>
+        <input type='hidden' name='documento' id='documento' value='$bdocumento'>
         <input type='submit'  value='Editar'>
         </form>";
         echo "</td>";
 
         echo "<td>";
         //Formulario para eliminar productos
-        echo "<form action='neg_eliminar_usuarios.php' id='eliminar_productos' name='eliminar_productos' method='POST' autocomplete='off'>
-        <input type='hidden' name='id_producto' id='id_producto' value='$bdocumento' />
+        echo "<form action='neg_eliminar_usuarios.php' id='eliminar_usuarios' name='eliminar_usuarios' method='POST' autocomplete='off'>
+        <input type='hidden' name='documento' id='documento' value='$bid_usuario' />
         <input type='checkbox' name='validar' value='checkbox' required />
         <input type='submit'  value='Eliminar' />
         </form>";

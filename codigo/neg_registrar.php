@@ -30,7 +30,7 @@ class Registro {
     } 
     if($documento!=""){    
     if($contador=="0"){
-        mysqli_query($db,"INSERT INTO usuarios (id_usuario,documento,password,nombres,apellidos,fk_id_estado,fk_id_roles) VALUES (NULL,'$documento','$password','$nombres','$apellidos','$estados','2')") or die (mysqli_error($db));
+        mysqli_query($db,"INSERT INTO usuarios (id_usuario,documento,password,nombres,apellidos,fk_id_roles,fk_id_estado) VALUES (NULL,'$documento','$password','$nombres','$apellidos','2','$estados')") or die (mysqli_error($db));
         header("location: pre_consultar_usuarios.php?c=1");
         }    
     if($contador!="0"){
