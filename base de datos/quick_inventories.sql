@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-10-2020 a las 01:14:13
+-- Tiempo de generación: 13-10-2020 a las 07:32:21
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
 
@@ -123,15 +123,18 @@ CREATE TABLE IF NOT EXISTS `reportes` (
   `id_reporte` int(5) NOT NULL AUTO_INCREMENT,
   `producto` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `reporte` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `fk_id_documento` varchar(17) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_reporte`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `reportes`
 --
 
-INSERT INTO `reportes` (`id_reporte`, `producto`, `reporte`) VALUES
-(1, '000123', 'Dañado');
+INSERT INTO `reportes` (`id_reporte`, `producto`, `reporte`, `fk_id_documento`) VALUES
+(1, '000123', 'Dañado', '12345'),
+(2, '000123', 'se daño', '12345'),
+(4, '000123', 'buen estado', '12345');
 
 -- --------------------------------------------------------
 
@@ -168,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `fk_id_roles` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
   `fk_id_estado` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -177,7 +180,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 INSERT INTO `usuarios` (`id_usuario`, `documento`, `password`, `nombres`, `apellidos`, `fk_id_roles`, `fk_id_estado`) VALUES
 (1, '123', '123', 'haiber', 'xp', '1', '1'),
 (3, '1234', 'prueba', 'prueba', 'prueba', '2', '2'),
-(4, '12', '123', '123', '123', '2', '1');
+(4, '12', '123', '123', '123', '2', '1'),
+(5, '12345', '123', 'prueba', 'preuba', '2', '1');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
