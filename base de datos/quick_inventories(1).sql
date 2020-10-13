@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 08-10-2020 a las 03:21:17
+-- Tiempo de generación: 13-10-2020 a las 01:14:13
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `categorias` (
   `categoria` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `fk_id_estado` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=20 ;
 
 --
 -- Volcado de datos para la tabla `categorias`
@@ -42,7 +42,7 @@ INSERT INTO `categorias` (`id_categoria`, `categoria`, `fk_id_estado`) VALUES
 (2, 'Teclados', '1'),
 (3, 'CPU', '1'),
 (4, 'Mouse', '1'),
-(5, 'celular', '1');
+(19, '123', '1');
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `fk_id_categoria` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
   `fk_id_estado` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_producto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=19 ;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -106,9 +106,32 @@ CREATE TABLE IF NOT EXISTS `productos` (
 
 INSERT INTO `productos` (`id_producto`, `cod_producto`, `producto`, `descripcion`, `fk_id_categoria`, `fk_id_estado`) VALUES
 (1, '000123', 'Pantalla Sansung LCD', 'BUEN ESTADO', ' 2', '2'),
-(2, '000124', 'pantalla LG LCD ', 'DAÑADA', '3', '1'),
+(2, '000124', 'pantalla LG LCD', 'DAÑADA', '3', '1'),
 (4, '000125', 'Pantalla CHALLENGER LCD', 'BUEN ESTADO', '4', '1'),
-(13, '000127', 'prrueba', 'pruea', ' 2', '1');
+(13, '000127', 'prrueba', 'pruea', ' 2', '1'),
+(15, '123', '123', '123', ' 1', '1'),
+(16, '12333', '123', '213', ' 2', '1'),
+(18, '123444', '', '', '', ' 2');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reportes`
+--
+
+CREATE TABLE IF NOT EXISTS `reportes` (
+  `id_reporte` int(5) NOT NULL AUTO_INCREMENT,
+  `producto` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `reporte` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id_reporte`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `reportes`
+--
+
+INSERT INTO `reportes` (`id_reporte`, `producto`, `reporte`) VALUES
+(1, '000123', 'Dañado');
 
 -- --------------------------------------------------------
 
@@ -142,17 +165,19 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `password` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
   `nombres` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `apellidos` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `imagen` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `fk_id_roles` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
+  `fk_id_estado` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `documento`, `password`, `nombres`, `apellidos`, `imagen`, `fk_id_roles`) VALUES
-(1, '123', '123', 'haber', 'xp', '', '1');
+INSERT INTO `usuarios` (`id_usuario`, `documento`, `password`, `nombres`, `apellidos`, `fk_id_roles`, `fk_id_estado`) VALUES
+(1, '123', '123', 'haiber', 'xp', '1', '1'),
+(3, '1234', 'prueba', 'prueba', 'prueba', '2', '2'),
+(4, '12', '123', '123', '123', '2', '1');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
