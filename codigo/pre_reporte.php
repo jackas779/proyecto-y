@@ -33,6 +33,7 @@ if ($error=="error")
     <form action="neg_reporte.php" name="reporte" id="reporte" method="post">
 
         <input type="text" id="cod_producto" name="cod_producto">Codigo Producto <br>
+        <input type="hidden" id="documento" name="documento" value='<?php echo $_SESSION["documento"]; ?>'>
         <input type="text" id="descripcion" name="descripcion">descripción <br>
         <input type="submit" value="Enviar">
 

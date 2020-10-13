@@ -36,6 +36,9 @@ echo "<tr bgcolor='#fFDDAA'>";
 echo "<td>Id Reporte</td>";
 echo "<td>Cod de producto</td>";
 echo "<td>Reporte</td>";
+echo "<td>Documento</td>";
+echo "<td>Nombres</td>";
+echo "<td>Apellidos</td>";
 echo "</tr>";
 
 
@@ -43,15 +46,27 @@ $consulta = "SELECT * FROM reportes";// consulta
     if(!$resultado = $db->query($consulta)){
     die('hay un error con la consulta o los datos no existen vuelve a comprobar !!![' . $db->error . ']');
     }// imprimir los resultados de la consulta
-    while($fila = $resultado->fetch_assoc()){;
+    while($fila = $resultado->fetch_assoc()){
         $bid_categoria=stripslashes($fila["id_reporte"]);
         $bcategoria=stripslashes($fila["producto"]);
         $bnombre_estado=stripslashes($fila["reporte"]);
+        $bfk_id_documento=stripslashes($fila["fk_id_documento"]);
 
+        $sql="SELECT * FROM usuarios WHERE documento = '$bfk_id_documento'";
+        if(!$result = $db->query($sql)){
+            die('hay un error con la consulta o los datos no existen vuelve a comprobar !!![' . $db->error . ']');
+            }
+        while($row = $result->fetch_assoc()){    
+        $bnombres=stripslashes($row["nombres"]);  
+        $bapellidos=stripslashes($row["apellidos"]);  
+        }
         echo "<tr>";
         echo "<td>$bid_categoria</td>";
         echo "<td>$bcategoria</td>";
         echo "<td>$bnombre_estado</td>";
+        echo "<td>$bfk_id_documento</td>";
+        echo "<td>$bnombres</td>";
+        echo "<td>$bapellidos</td>";
         echo "<tr>";
 
         }

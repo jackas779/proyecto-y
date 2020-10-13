@@ -1,7 +1,7 @@
 <?php
 
 class Reporte{
-    public function reportes($producto,$descripcion){
+    public function reportes($producto,$descripcion,$documento){
         include("conexion.php");
         $contador="0";
         $consulta= "SELECT * FROM productos WHERE cod_producto='$producto'";
@@ -12,7 +12,7 @@ class Reporte{
             $bcod_producto=stripslashes($fila['cod_producto']);
         }    
         if($bcod_producto==$producto){
-            mysqli_query($db,"INSERT INTO  reportes (id_reporte,producto,reporte) VALUE (NULL,'$producto','$descripcion')") or die (mysqli_error($db));
+            mysqli_query($db,"INSERT INTO  reportes (id_reporte,producto,reporte,fk_id_documento) VALUE (NULL,'$producto','$descripcion','$documento')") or die (mysqli_error($db));
             header("location: pre_reporte.php");
         }
         if($bcod_producto!=$producto){
@@ -21,7 +21,7 @@ class Reporte{
     }
 }
 $new= new Reporte();
-$new-> reportes($_POST['cod_producto'],$_POST['descripcion']); 
+$new-> reportes($_POST['cod_producto'],$_POST['descripcion'],$_POST['documento']); 
 
 
 ?>
