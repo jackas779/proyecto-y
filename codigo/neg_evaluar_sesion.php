@@ -17,9 +17,6 @@ class Sesion {
     
 
         }// la consulta termina y el while tambien
-
-
-        echo " $bfk_id_estado";
        
         if($bfk_id_estado!="1"){
             $contador +=1;
